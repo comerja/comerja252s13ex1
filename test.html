@@ -1,0 +1,78 @@
+<!DOCTYPE html> <!--This program is to test field validation for 252 test -->
+<html>
+
+<head>
+	<meta charset = "utf-8">
+</head>
+
+<body style="background-color:teal">
+
+<p><strong><h1><center><big>INFORMATION SHEET</big></center></h1></strong></p> </br>
+
+<form name = information>
+ <!-- sets the parameters for the form -->
+	
+	Street 1:<input type="text" name="StreetName1" style="background-color:white" size="50" maxlength="150"/> <br/>
+	Street 2:<input type="text" name="StreetName2" style="background-color:white" size="50" maxlength="150"/> <br/>
+	City:<input type="text" name="City" style="background-color:white" size="25" maxlength="80"/> <br/>
+	State <select>
+			<option value = "VA">VA</option>
+			<option value = "PA">PA</option>
+			</select><br/>
+	Zip Code:<input type="text" name="ZipCode" style="background-color:white" size="5" maxlength="5"/> <br/>
+	Phone Number:<input type="text" name="PhoneNumber" style="background-color:white" size="10" maxlength="10"/> <br/>
+	Email:<input type="text" name="Email" style="background-color:white" size="50" maxlength="80"/> <br/>
+	
+
+<!-- creates the buttons for the form -->
+	<input type="button" value="Submit" ONClick= "formvalidation(information);">
+	<input type="button" value="Clear" ONClick="this.form.reset()">
+	
+</form>
+
+<!-- declares the functions that are going to be used to validate the fields-->
+<script language = "Javascript">
+
+	function formvalidation(information) {
+	{
+		var street1 = document.information.StreetName1;
+		var city1 = document.information.City;
+		var email1 = document.information.Email;
+	}
+	if (street1.value =="")
+	{
+		alert("Please Enter Something for Street Name!");
+		street1.focus ();
+		return false;
+	}
+	if (city1.value == "")
+	{
+		alert ("Please Enter Something for City!")
+		city1.focus ();
+		return false;
+	}
+	if (email1.value =="")
+	{
+		alert ("Please Enter Valid Email!")
+		email1.focus();
+		return false;
+	}
+	if (email1.value.indexof("@", 0) ==-1)
+	{
+		alert ("Please Enter Valid Email!")
+		email1.focus();
+		return false;
+	}
+	if (email1.value.indexof(".", 0) ==-1)
+	{
+		alert ("Please enter Valid Email!")
+		email1.focus();
+		return false;
+	}
+		return true;
+	}
+	
+</script>
+
+</body>
+</html>
